@@ -9,48 +9,32 @@ PM = DragonPathManager(
 
 # 2. Define directories and files.
 ### Base files
-PM.clean_data_file = PM.start_data / "clean_data.csv"
+PM.clean_file = PM.start_data / "clean_data.csv"
 
 ### Datasets
 PM.datasets = PM.results / "Datasets"
-PM.preprocessed_data_file = PM.datasets / "preprocessed_data.csv"
+PM.preprocessed_file = PM.datasets / "preprocessed_data.csv"
 
 ### Feature Engineering
 PM.engineering = PM.results / "Feature Engineering"
-PM.engineering_artifacts = PM.engineering / "Engineering Artifacts"
 PM.engineering_plots = PM.engineering / "Engineering Plots"
-PM.engineering_data_file = PM.datasets / "engineered_data.csv"
+PM.engineering_file = PM.datasets / "engineered_data.csv"
 
 ### MICE - VIF
 PM.mice = PM.results / "MICE"
 PM.mice_datasets = PM.mice / "MICE Datasets"
-PM.mice_metrics = PM.mice / "MICE Metrics"
 PM.vif = PM.results / "VIF"
-PM.imputed_data_file = PM.datasets / "imputed_data.csv"
+PM.imputed_file = PM.datasets / "imputed_data.csv"
 
-### Classification
-PM.classification = PM.results / "Classification"
-PM.classification_filler = PM.classification / "Filler"
-PM.classification_curing = PM.classification / "Curing"
+### Autoencoder
+PM.autoencoder = PM.results / "Autoencoder"
 
-### Regression
-PM.regression = PM.results / "Regression"
-PM.regression_filler = PM.regression / "Filler"
+### Diffusion
+PM.diffusion = PM.results / "Diffusion"
 
-### Regression Chain
-PM.chain = PM.results / "Regression Chain"
-PM.chain_temp = PM.chain / "temp"
-# step1
-PM.chain_tensile_file = PM.chain_temp / "tensile_strength.csv"
-PM.chain_tensile = PM.chain / "Tensile Strength"
-# step2
-PM.chain_artifacts2 = PM.chain_temp / "artifacts step2"
-PM.chain_flexural_file = PM.chain_temp / "flexural_strength.csv"
-PM.chain_flexural = PM.chain / "Flexural Strength"
+### Generation
+PM.generation = PM.results / "Generation"
 
-### Optimization
-PM.optimization = PM.results / "Optimization"
-PM.final_data_file = PM.datasets / "predicted_samples.csv"
 
 # 3. Make directories and check status
 PM.make_dirs()
