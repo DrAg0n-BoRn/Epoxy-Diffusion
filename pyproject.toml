@@ -1,0 +1,9 @@
+[project]
+name = "epoxy_diffusion"
+version = "1.0.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = "==3.12.*"
+dependencies = [
+    "dragon-ml-toolbox[ml]==22.9.0",
+]
