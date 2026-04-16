@@ -28,3 +28,8 @@ FILLER_PROPORTION_2 = "Filler Proportion 2(%)" # continuous
 FILLER_PROPORTION_3 = "Filler Proportion 3(%)" # continuous
 TEMPERATURE = "Temperature(K)" # continuous
 
+# Model hyperparameters
+EMBEDDING_DIM = 128
+
+# target range for generation
+TARGET_RANGE = (60, 80)
