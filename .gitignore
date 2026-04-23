@@ -67,3 +67,6 @@ test.ipynb
 *.xlsx
 *.docx
 *.pptx
+
+# Use jupytext to convert notebooks to MD files
+*.ipynb
