@@ -18,11 +18,11 @@ jupyter:
 from ml_tools.utilities import load_dataframe
 from ml_tools.data_exploration import (filter_subset_continuous, 
                                        reconstruct_from_schema,
-                                       plot_value_distributions, 
+                                       plot_value_distributions_multi, 
                                        plot_numeric_overview_boxplot_macro, 
                                        summarize_dataframe)
 from ml_tools.schema import FeatureSchema
-from ml_tools.serde import serialize_object
+from ml_tools.path_manager import make_fullpath
 
 from paths import PM
 from helpers.constants import TARGET_RANGE, TARGET
@@ -59,18 +59,28 @@ summarize_dataframe(df_range)
 ## Plot Distributions
 
 ```python
-plot_value_distributions(df=df_range, save_dir=PM.train_comparison)
-```
-
-```python
 plot_numeric_overview_boxplot_macro(df=df_range,
-                                    save_dir=PM.train_comparison,
-                                    plot_title=f"Data Distribution - {TARGET} range {TARGET_RANGE[0]} to {TARGET_RANGE[1]}",
+                                    save_dir=PM.comparison,
+                                    plot_title=f"Train Data Distribution - {TARGET} range {TARGET_RANGE[0]} to {TARGET_RANGE[1]}",
                                     handle_zero_variance="constant")
 ```
 
-## Save batch size to file for use in generation script
+## Plot Comparison
 
 ```python
-serialize_object(obj=df_range.shape[0], file_path=PM.batch_size_file)
+generated_local_path = "results/Generation/Target-80-Guidance-3_0/Generated-500-samples.csv"
+
+df_generated, _ = load_dataframe(df_path=generated_local_path)
+```
+
+```python
+# Named Dataframes
+named_dataframes = {"Train": df_range, "Generated": df_generated}
+```
+
+```python
+plot_value_distributions_multi(named_dataframes=named_dataframes,
+                               save_dir=PM.comparison,
+                               font_scaling=1.5,
+                               mode="percentage")
 ```

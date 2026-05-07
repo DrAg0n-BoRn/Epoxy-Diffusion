@@ -32,4 +32,4 @@ TEMPERATURE = "Temperature(K)" # continuous
 EMBEDDING_DIM = 128
 
 # target range for generation
-TARGET_RANGE = (60, 80)
+TARGET_RANGE = (70, 90)

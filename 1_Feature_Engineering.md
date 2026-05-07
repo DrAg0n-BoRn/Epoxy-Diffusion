@@ -158,7 +158,7 @@ plot_value_distributions(df=df_processed, save_dir=PM.engineering_plots)
 ```
 
 ```python
-plot_correlation_heatmap(df=df_processed, plot_title="Data Correlation Heatmap", save_dir=PM.engineering_plots)
+plot_correlation_heatmap(df=df_processed, plot_title="Raw Data", save_dir=PM.engineering_plots)
 ```
 
 ```python

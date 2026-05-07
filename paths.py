@@ -34,8 +34,7 @@ PM.diffusion = PM.results / "Diffusion"
 
 ### Generation
 PM.generation = PM.results / "Generation"
-PM.train_comparison = PM.generation / "Train Range Comparison"
-PM.batch_size_file = PM.generation / "batch_size.joblib"
+PM.comparison = PM.generation / "Train Range Comparison"
 
 
 # 3. Make directories and check status
