@@ -34,7 +34,9 @@ PM.diffusion = PM.results / "Diffusion"
 
 ### Generation
 PM.generation = PM.results / "Generation"
-PM.comparison = PM.generation / "Train Range Comparison"
+
+### Comparison
+PM.comparison = PM.results / "Comparison"
 
 
 # 3. Make directories and check status

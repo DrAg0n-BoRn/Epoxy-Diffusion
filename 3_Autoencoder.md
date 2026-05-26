@@ -32,7 +32,6 @@ from ml_tools.keys import TaskKeys
 from torch.optim import AdamW
 
 from paths import PM
-from helpers.constants import EMBEDDING_DIM
 ```
 
 ```python
@@ -47,17 +46,17 @@ TRAIN_ARTIFACTS_DIR = PM.autoencoder
 train_config = DragonTrainingConfig(
     validation_size=0.1,
     test_size=0.1,
-    initial_learning_rate=0.01,
-    batch_size=32,
+    initial_learning_rate=0.005,
+    batch_size=24,
     task = TaskKeys.AUTOENCODER,
     device = "cuda:0",
     finalized_filename = "autoencoder_epoxy",
     random_state=101,
     
-    weight_decay=0.01,
+    weight_decay=0.02,
     early_stop_patience=25,
-    scheduler_patience=6,
-    scheduler_lr_factor=0.7,
+    scheduler_patience=4,
+    scheduler_lr_factor=0.9,
     monitor_metric="Validation Loss"
 )
 ```
@@ -89,8 +88,8 @@ dataset = ChosenDataset(pandas_df=df,
 ```python
 model_params = ChosenModelParams(
     schema=schema,
-    embedding_dim=EMBEDDING_DIM,
-    fourier_sigma=1.0
+    embedding_dim=128,
+    fourier_sigma=0.5
 )
 
 model = ChosenModel(**model_params)
@@ -127,7 +126,7 @@ history = trainer.fit(epochs=2000, batch_size=train_config.batch_size)
 trainer.evaluate(model_checkpoint="best",
                 test_data=dataset.test_dataset,
                 val_format_configuration=ChosenMetricsConfig(),
-                test_format_configuration=ChosenMetricsConfig(hist_color="tab:brown", cmap="BuPu"),
+                test_format_configuration=ChosenMetricsConfig(hist_color="tab:brown", cmap="BuPu", num_color="tab:purple", scatter_color="mediumvioletred"),
                 )
 ```
 

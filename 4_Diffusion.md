@@ -34,7 +34,7 @@ from torch.optim import AdamW
 from ml_tools.ML_models_diffusion import DragonAutoencoder
 
 from paths import PM
-from helpers.constants import EMBEDDING_DIM, TARGET
+from helpers.constants import TARGET
 ```
 
 ```python
@@ -50,7 +50,7 @@ train_config = DragonTrainingConfig(
     validation_size=0.1,
     test_size=0.1,
     initial_learning_rate=0.005,
-    batch_size=32,
+    batch_size=24,
     task = TaskKeys.DIFFUSION,
     device = "cuda:0",
     finalized_filename = "dit_e51",
@@ -97,8 +97,8 @@ encoder = DragonAutoencoder.from_artifact_finder(_finder)
 
 ```python
 model_params = ChosenModelParams(
-    embed_dim=EMBEDDING_DIM,
-    seq_len=schema.number_of_features(),
+    embed_dim=encoder.embedding_dim,
+    seq_len=schema.number_of_features,
     num_heads=4,
     depth=3
 )
