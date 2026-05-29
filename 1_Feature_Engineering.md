@@ -164,7 +164,7 @@ plot_correlation_heatmap(df=df_processed, plot_title="Raw Data", save_dir=PM.eng
 ```python
 plot_numeric_overview_boxplot_macro(df=df_continuous,
                                     save_dir=PM.engineering_plots,
-                                    plot_title="Continuous Feature Distributions",
+                                    plot_title="Train Data Distribution",
                                     handle_zero_variance="constant")
 ```
 
@@ -173,7 +173,7 @@ plot_continuous_vs_target(df_continuous=df_continuous, df_targets=df_targets, sa
 ```
 
 ```python
-plot_categorical_vs_target(df_categorical=df_categorical, df_targets=df_targets, save_dir=PM.engineering_plots)
+plot_categorical_vs_target(df_categorical=df_categorical, df_targets=df_targets, save_dir=PM.engineering_plots, fill_na_with="Other")
 ```
 
 ## 6. Encode Categorical Features
